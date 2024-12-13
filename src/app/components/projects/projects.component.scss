@@ -1,0 +1,28 @@
+.projects-detail {
+  display: flex;
+  gap: 2rem;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  background-color: #b8b8b8;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+}
+
+.proj-img {
+  object-position: center center;
+  object-fit: contain;
+  image-rendering: auto;
+  height: 20rem;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+p-image {
+}

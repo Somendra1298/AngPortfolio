@@ -1,0 +1,70 @@
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", "Poppins Placeholder", sans-serif;
+}
+
+.img-div {
+  background-image: url("../../../assets/images/chat.png");
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 4px rgba(19, 19, 19, 0.2);
+}
+
+.img-div:hover {
+  opacity: 0.75;
+  transition: linear 0.2ms;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 4px rgba(19, 19, 19, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 500;
+}
+
+.nav-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.pi-paperclip {
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: #fff;
+  background-color: var(--black);
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 4px rgba(19, 19, 19, 0.2);
+}
+
+.pi-paperclip:hover {
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 4px rgba(19, 19, 19, 0.2);
+}
+
+.pi-paperclip:before {
+  content: "\e97b";
+  position: relative;
+  top: 0.6rem;
+  left: 0.5rem;
+}
+
+.p-toolbar-group-end {
+  gap: 1rem;
+}

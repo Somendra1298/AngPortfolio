@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  padding: 3rem 0;
+}
+
+p-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host::ng-deep.p-card-header img {
+  width: 20% !important;
+  padding: 0.5rem;
+}
+
+:host::ng-deep.p-card .p-card-body {
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}

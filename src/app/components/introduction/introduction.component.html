@@ -1,0 +1,33 @@
+<section class="intro">
+  <div class="description">
+    <p class="name slide-in-blurred-left-2">{{ LABELS.NAME }}</p>
+    <div class="info-font slide-in-blurred-left">
+      <span class="purple">{{ LABELS.ANG }}</span
+      >{{ LABELS.ANGULAR }}
+    </div>
+    <p>
+      {{ LABELS.INTRO }}
+    </p>
+    <div class="btn-div">
+      <p-button
+        class="purple-btn"
+        [label]="LABELS.GETINTOUCH"
+        (click)="openDialog()"
+      />
+      <p-button
+        class="white-btn"
+        [label]="LABELS.BROWSEPROJECTS"
+        routerLink="/Projects"
+      />
+    </div>
+  </div>
+  <div class="image">
+    <div class="outer-image-div tilt-in-top-1">
+      <img
+        [src]="LABELS.IMAGESRC"
+        alt="profile.jpg"
+        class="profile-img vibrate-1"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,423 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+:root {
+  --black: #24262f;
+  --white: #fcfcfd;
+  --purple: #673ab7;
+}
+html,
+body {
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+  background-color: #fcfcfd;
+  color: var(--black) !important;
+  font-size: 0.875rem;
+}
+body {
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+  color: var(--black) !important;
+  background-color: #fcfcfd;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+p-button > button {
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+  font-size: 0.75rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.purple-hover:hover {
+  color: var(--purple);
+}
+
+.purple {
+  color: var(--purple);
+}
+
+.purple-btn > button {
+  color: var(--white);
+  font-size: 0.75rem;
+  border: none;
+  font-weight: 600;
+}
+
+.purple-btn > button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: linear 0.2s;
+}
+
+.white-btn > button {
+  color: var(--black);
+  font-size: 0.75rem;
+  background-color: var(--white);
+  font-weight: 600;
+  outline: 1px solid var(--black);
+}
+
+.white-btn > button:hover {
+  cursor: pointer;
+  transition: linear 0.2s;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.title {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--black);
+}
+
+.purple-dot {
+  font-size: 3rem;
+  color: var(--purple);
+  font-weight: 700;
+  padding-bottom: 2rem;
+}
+
+.active {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.img-container-1 > p-image > span > img {
+  width: 380px;
+}
+
+.img-container-2 > p-image > span > img {
+  width: 570px;
+}
+
+.p-toolbar {
+  padding: 0.5rem 0;
+  box-shadow: 0px 5px 15px -3px rgba(19, 19, 19, 0.2) !important;
+  padding: 1rem 1rem !important;
+}
+
+.error {
+  color: #d9342b;
+  font-weight: 500;
+  font-size: 0.75rem;
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+.mobile {
+  display: none !important;
+}
+
+.p-message .p-message-summary {
+  font-weight: 700;
+  padding-bottom: 0.1rem;
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+.p-message .p-message-detail {
+  margin-left: 0.5rem;
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+.p-menu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+.p-inputgroup .p-inputtext {
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+.experience,
+.intro,
+.projects {
+  padding-top: 2rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p-accordionTab {
+  font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+}
+
+@media only screen and (min-width: 1920px) {
+  body {
+    padding: 0 20rem;
+  }
+
+  .intro {
+    display: flex;
+    gap: 10rem;
+  }
+}
+
+@media only screen and (max-width: 667px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .info-font {
+    font-size: 4rem !important;
+    font-weight: bold;
+    margin: 0rem;
+    line-height: 1.2;
+  }
+
+  .projects-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .img-container > p-image > span > img {
+    width: 100%;
+  }
+
+  .description {
+    width: -webkit-fill-available;
+  }
+
+  .p-toolbar {
+    padding: 0.5rem 0;
+    box-shadow: 0px 5px 15px -3px rgba(19, 19, 19, 0.2) !important;
+    padding: 1rem 0.5rem !important;
+  }
+
+  .pad {
+    padding: 0 0.2rem !important;
+  }
+
+  .img-div[_ngcontent-ng-c72128322] {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  .nav-links {
+    gap: 0.7rem !important;
+  }
+
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+
+  .desktop {
+    display: none !important;
+  }
+  .mobile {
+    display: block !important;
+  }
+
+  .p-message .p-message-wrapper {
+    padding: 1rem 1.25rem;
+    font-size: 12px;
+    font-family: "Poppins", "Poppins Placeholder", sans-serif !important;
+  }
+
+  .experience,
+  .intro,
+  .projects {
+    padding: 0 0.5rem;
+    padding-top: 2rem;
+  }
+
+  .title {
+    font-size: 1.5rem !important;
+  }
+}
+
+// Animation Profile Image
+
+.tilt-in-top-1 {
+  -webkit-animation: tilt-in-top-1 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: tilt-in-top-1 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes tilt-in-top-1 {
+  0% {
+    -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+    transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+    transform: rotateY(0deg) translateY(0) skewY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes tilt-in-top-1 {
+  0% {
+    -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+    transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+    transform: rotateY(0deg) translateY(0) skewY(0deg);
+    opacity: 1;
+  }
+}
+
+// Animation Intro text
+
+.slide-in-blurred-left {
+  -webkit-animation: slide-in-blurred-left 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
+  animation: slide-in-blurred-left 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@-webkit-keyframes slide-in-blurred-left {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+    transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-left {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+    transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-blurred-left-2 {
+  -webkit-animation: slide-in-blurred-left-2 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+    0.5s both;
+  animation: slide-in-blurred-left-2 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.5s
+    both;
+}
+
+@-webkit-keyframes slide-in-blurred-left-2 {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+    transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-left-2 {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+    transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+// navbar animation
+
+.slide-in-blurred-top {
+  -webkit-animation: slide-in-blurred-top 0.6s
+    cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@-webkit-keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}

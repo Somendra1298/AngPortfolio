@@ -1,0 +1,15 @@
+<div class="grid">
+  @for(skill of LABELS.SKILLSLIST; track skill){
+  <p-card
+    [header]="skill.title"
+    [subheader]="skill.experience"
+    [style]="{ width: '360px' }"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" [src]="skill.imageUrl" />
+    </ng-template>
+    <p-meterGroup [value]="skill.value" />
+    <ng-template pTemplate="footer"> </ng-template>
+  </p-card>
+  }
+</div>

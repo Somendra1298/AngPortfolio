@@ -1,0 +1,47 @@
+<p-toolbar class="desktop slide-in-blurred-top">
+  <div class="p-toolbar-group-start nav-items">
+    <span class="pointer purple-hover nav-title" routerLink="/">{{
+      LABELS.TITLE
+    }}</span>
+  </div>
+  <div class="p-toolbar-group-center nav-links">
+    @for(items of navItems; track items){
+    <span
+      class="pointer purple-hover"
+      [routerLink]="'/' + items"
+      routerLinkActive="active"
+      >{{ items }}</span
+    >
+    }
+  </div>
+  <div class="p-toolbar-group-end">
+    <i
+      class="pi pi-paperclip"
+      pTooltip="Download Resume"
+      tooltipPosition="bottom"
+      (click)="downloadResume()"
+    ></i>
+    <div
+      class="img-div pointer"
+      (click)="openDialog()"
+      pTooltip="Contact"
+      tooltipPosition="bottom"
+    ></div>
+  </div>
+</p-toolbar>
+
+<!-- mobile -->
+
+<p-toolbar class="mobile">
+  <div class="p-toolbar-group-start nav-items">
+    <span class="pointer purple-hover nav-title" routerLink="/">{{
+      LABELS.TITLE
+    }}</span>
+  </div>
+
+  <div class="p-toolbar-group-end">
+    <p-toast />
+    <p-menu #menu [model]="items" [popup]="true" />
+    <p-button (onClick)="menu.toggle($event)" icon="pi pi-ellipsis-v" />
+  </div>
+</p-toolbar>

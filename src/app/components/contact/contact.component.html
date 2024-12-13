@@ -1,0 +1,55 @@
+@if(showInfo){
+<div class="card">
+  <p-messages [(value)]="messages" [closable]="false" />
+</div>
+}
+
+<form class="grid" [formGroup]="contactForm" (submit)="submit($event)">
+  @for(item of LABELS.FORM; track item){
+  <div>
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i [class]="item.icon"></i>
+      </p-inputGroupAddon>
+      <input
+        pInputText
+        [placeholder]="item.type"
+        [formControlName]="item.type"
+        [name]="item.type"
+      />
+    </p-inputGroup>
+    @if(contactForm.get(item.type)?.invalid &&
+    contactForm.get(item.type)?.touched){
+    <div>
+      @if(contactForm.get(item.type)?.errors?.['required']){
+      <span class="error"
+        >{{ item.type }} {{ LABELS.ERRORMESSAGE.REQUIRED }}</span
+      >
+      }@else if(contactForm.get(item.type)?.errors?.['pattern']){
+      <span class="error"
+        >{{ LABELS.ERRORMESSAGE.PATTERN }} {{ item.type }}</span
+      >
+      }
+    </div>
+    }
+  </div>
+  }
+  <p-inputGroup class="grid-col-span-2">
+    <p-inputGroupAddon>
+      <i class="pi pi-comment"></i>
+    </p-inputGroupAddon>
+    <textarea
+      rows="5"
+      cols="30"
+      pInputTextarea
+      [autoResize]="true"
+      formControlName="Comments"
+      name="Comments"
+    >
+    </textarea>
+  </p-inputGroup>
+  <div class="modal-btn">
+    <p-button label="Send" severity="success" type="submit" />
+    <p-button label="Cancel" severity="danger" (click)="cancel()" />
+  </div>
+</form>
