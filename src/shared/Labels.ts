@@ -37,7 +37,7 @@ export const LABELS = {
         INTRO: "An innovative, purpose-driven engineer contributed my learning into building web applications & solutions for enterprises.Seeking to work in a professional ambiance that provides a space to contribute my skills towards the growth of the organization.",
         GETINTOUCH: "Get In Touch",
         BROWSEPROJECTS: "Browse Projects",
-        IMAGESRC: "../../assets/images/image.jpg",
+        IMAGESRC: "../../assets/images/image1.jpg",
         MODALTITLE: 'Send a Message',
     },
     projects: {
