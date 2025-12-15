@@ -18,67 +18,60 @@ export class ContactComponent {
 
   LABELS: any;
   contactForm: any;
-  showInfo = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private messageService: MessageService,
-    public ref: DynamicDialogRef          // ✅ REQUIRED FOR CANCEL
+    public ref: DynamicDialogRef
   ) {
     this.LABELS = LABELS.contact;
-    this.createForm();
+    this.buildForm();
   }
 
-  createForm() {
-    this.contactForm = this.formBuilder.group({
-      Firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      Lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+  buildForm() {
+    this.contactForm = this.fb.group({
+      Firstname: ['', Validators.required],
+      Lastname: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
-      Phone: ['', [Validators.required]],
-      Comments: ['', [Validators.required]]
+      Phone: ['', Validators.required],
+      Comments: ['', Validators.required]
     });
   }
 
   submit(event: Event) {
     event.preventDefault();
 
-    if (this.contactForm.valid) {
+    if (!this.contactForm.valid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
 
-      emailjs.sendForm(
-        this.LABELS.EMAILJS.SERVICEID,
-        this.LABELS.EMAILJS.TEMPLATEID,
-        event.target as HTMLFormElement,
-        { publicKey: this.LABELS.EMAILJS.PUBLICKEY }
-      )
-      .then(() => {
-        // ✅ SUCCESS TOAST
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success',
-          detail: 'Email sent successfully'
-        });
-
-        this.contactForm.reset();
-        this.ref.close();   // ✅ AUTO CLOSE DIALOG
-      })
-      .catch(() => {
-        // ❌ ERROR TOAST
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Email failed. Please try again later.'
-        });
+    emailjs.sendForm(
+      this.LABELS.EMAILJS.SERVICEID,
+      this.LABELS.EMAILJS.TEMPLATEID,
+      event.target as HTMLFormElement,
+      { publicKey: this.LABELS.EMAILJS.PUBLICKEY }
+    )
+    .then(() => {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Email sent successfully'
       });
 
-    } else {
-      this.showInfo = true;
-    }
+      this.contactForm.reset();
+      this.ref.close();
+    })
+    .catch(() => {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Email failed. Please try again later.'
+      });
+    });
   }
 
- cancel(event: Event) {
-  event.preventDefault();   // ✅ STOP FORM SUBMIT
-  event.stopPropagation();  // ✅ STOP BUBBLING
-  this.ref.close();         // ✅ CLOSE DIALOG
-}
-
+  cancel() {
+    this.ref.close();
+  }
 }
