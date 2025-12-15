@@ -1,43 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { PrimeNgModule } from '../../../shared/prime-ng.module';
+import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { SharedService } from '../../../shared/shared.service';
 
 @Component({
   selector: 'app-toast-message',
   standalone: true,
-  imports: [PrimeNgModule],
-  templateUrl: './toast-message.component.html',
-  styleUrl: './toast-message.component.scss'
+  template: `<p-toast></p-toast>`,
+  providers: [MessageService]
 })
-export class ToastMessageComponent implements OnInit {
+export class ToastMessageComponent {
 
-  visible: boolean = false;
-  toastObj: any = {
-    severity: '',
-    summary: '',
-    detail: ''
-  };
-  constructor(private messageService: MessageService, private sharedService: SharedService) { }
-  ngOnInit() {
-    this.show()
+  constructor(private messageService: MessageService) {}
+
+  success(message: string) {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: message
+    });
   }
 
-
-  show() {
-    this.sharedService.$toastData.subscribe({
-      next: (response) => {
-        console.log(response);
-        if (response.severity !== '' && response.summary !== '' && response.details !== '') {
-          this.visible = true;
-          this.toastObj = {
-            'severity': response.severity,
-            'summary': response.summary,
-            'detail': response.detail
-          }
-          this.messageService.add({ severity: response.severity, summary: response.summary, detail: response.detail });
-        }
-      }
-    })
+  error(message: string) {
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: message
+    });
   }
 }
