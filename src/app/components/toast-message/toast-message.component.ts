@@ -1,31 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-toast-message',
   standalone: true,
-  imports: [ToastModule],   // ✅ FIX
+  imports: [ToastModule],
   template: `<p-toast></p-toast>`,
   providers: [MessageService]
 })
-export class ToastMessageComponent {
+export class ToastMessageComponent implements OnInit {
 
-  constructor(private messageService: MessageService) {}
+  constructor(
+    private messageService: MessageService,
+    private sharedService: SharedService
+  ) {}
 
-  success(message: string) {
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: message
-    });
-  }
-
-  error(message: string) {
-    this.messageService.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: message
+  ngOnInit(): void {
+    this.sharedService.toast$.subscribe((toast) => {
+      if (toast?.severity) {
+        this.messageService.add(toast);
+      }
     });
   }
 }
