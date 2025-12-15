@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { PrimeNgModule } from '../../../shared/prime-ng.module';
 import { LABELS } from '../../../shared/Labels';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Contact } from '../../../shared/contact.modal';
 import emailjs from '@emailjs/browser';
 import { SharedService } from '../../../shared/shared.service';
 
@@ -16,7 +15,7 @@ import { SharedService } from '../../../shared/shared.service';
 export class ContactComponent {
 
   LABELS: any;
-  contactForm: any = new Contact();
+  contactForm: any;   // ✅ FIXED
   showInfo: boolean = false;
 
   constructor(
