@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { SharedService, ToastMessage } from '../../shared/shared.service';
+import { SharedService, ToastMessage } from '../../../shared/shared.service';
 
 @Component({
   selector: 'app-toast-message',
