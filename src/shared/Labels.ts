@@ -60,11 +60,12 @@ export const LABELS = {
             REQUIRED: 'is Required.',
             PATTERN: 'Please enter valid '
         },
-        EMAILJS: {
-            SERVICEID: 'service_4ixaaem',
-            TEMPLATEID: 'template1',
-            PUBLICKEY: 'at77qQTZlz3t2ghao'
-        }
+      EMAILJS: {
+    SERVICEID: 'service_20r0ltk',
+    TEMPLATEID: 'PASTE_YOUR_REAL_TEMPLATE_ID_HERE',
+    PUBLICKEY: 'at77qQTZlz3t2ghao'
+}
+
     },
     toast: {
         SUCCESS: {
