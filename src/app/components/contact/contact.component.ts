@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { PrimeNgModule } from '../../../shared/prime-ng.module';
-import { LABELS } from '../../../shared/Labels';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-import { SharedService } from '../../../shared/shared.service';
+import { MessageService } from 'primeng/api';
+
+import { PrimeNgModule } from '../../../shared/prime-ng.module';
+import { LABELS } from '../../../shared/Labels';
 
 @Component({
   selector: 'app-contact',
@@ -15,23 +16,23 @@ import { SharedService } from '../../../shared/shared.service';
 export class ContactComponent {
 
   LABELS: any;
-  contactForm: any;   // ✅ FIXED
-  showInfo: boolean = false;
+  contactForm: any;
+  showInfo = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private sharedService: SharedService
+    private messageService: MessageService
   ) {
     this.LABELS = LABELS.contact;
-    this.form();
+    this.createForm();
   }
 
-  form() {
+  createForm() {
     this.contactForm = this.formBuilder.group({
-      Firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{1,}$')]],
-      Lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{1,}$')]],
-      Email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
-      Phone: ['', [Validators.required, Validators.pattern('^\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$')]],
+      Firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      Lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      Email: ['', [Validators.required, Validators.email]],
+      Phone: ['', [Validators.required]],
       Comments: ['', [Validators.required]]
     });
   }
@@ -41,31 +42,28 @@ export class ContactComponent {
 
     if (this.contactForm.valid) {
 
-      emailjs
-        .sendForm(
-          this.LABELS.EMAILJS.SERVICEID,
-          this.LABELS.EMAILJS.TEMPLATEID,
-          event.target as HTMLFormElement,
-          { publicKey: this.LABELS.EMAILJS.PUBLICKEY }
-        )
-        .then(() => {
-          this.sharedService.showToast({
-
-            severity: 'success',
-            summary: 'Success',
-            detail: 'Email sent successfully'
-          });
-          this.contactForm.reset();
-        })
-        .catch((error) => {
-          console.error('EmailJS Error:', error);
-          this.sharedService.showToast({
-
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Email failed. Please try again later.'
-          });
+      emailjs.sendForm(
+        this.LABELS.EMAILJS.SERVICEID,
+        this.LABELS.EMAILJS.TEMPLATEID,
+        event.target as HTMLFormElement,
+        { publicKey: this.LABELS.EMAILJS.PUBLICKEY }
+      )
+      .then(() => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Email sent successfully'
         });
+
+        this.contactForm.reset();
+      })
+      .catch(() => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Email failed. Please try again later.'
+        });
+      });
 
     } else {
       this.showInfo = true;
