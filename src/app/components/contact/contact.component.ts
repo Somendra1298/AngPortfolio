@@ -49,7 +49,8 @@ export class ContactComponent {
           { publicKey: this.LABELS.EMAILJS.PUBLICKEY }
         )
         .then(() => {
-          this.sharedService.updateToastMessage({
+          this.sharedService.showToast({
+
             severity: 'success',
             summary: 'Success',
             detail: 'Email sent successfully'
@@ -58,7 +59,8 @@ export class ContactComponent {
         })
         .catch((error) => {
           console.error('EmailJS Error:', error);
-          this.sharedService.updateToastMessage({
+          this.sharedService.showToast({
+
             severity: 'error',
             summary: 'Error',
             detail: 'Email failed. Please try again later.'
