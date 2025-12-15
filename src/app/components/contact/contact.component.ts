@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import emailjs from '@emailjs/browser';
 import { MessageService } from 'primeng/api';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import emailjs from '@emailjs/browser';
 
 import { PrimeNgModule } from '../../../shared/prime-ng.module';
 import { LABELS } from '../../../shared/Labels';
@@ -21,7 +22,8 @@ export class ContactComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    public ref: DynamicDialogRef          // ✅ REQUIRED FOR CANCEL
   ) {
     this.LABELS = LABELS.contact;
     this.createForm();
@@ -49,6 +51,7 @@ export class ContactComponent {
         { publicKey: this.LABELS.EMAILJS.PUBLICKEY }
       )
       .then(() => {
+        // ✅ SUCCESS TOAST
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -56,8 +59,10 @@ export class ContactComponent {
         });
 
         this.contactForm.reset();
+        this.ref.close();   // ✅ AUTO CLOSE DIALOG
       })
       .catch(() => {
+        // ❌ ERROR TOAST
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -72,6 +77,6 @@ export class ContactComponent {
 
   cancel() {
     this.contactForm.reset();
-    this.showInfo = false;
+    this.ref.close();       // ✅ CANCEL NOW WORKS
   }
 }
