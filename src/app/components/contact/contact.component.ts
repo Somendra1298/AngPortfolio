@@ -75,8 +75,10 @@ export class ContactComponent {
     }
   }
 
-  cancel() {
-    this.contactForm.reset();
-    this.ref.close();       // ✅ CANCEL NOW WORKS
-  }
+ cancel(event: Event) {
+  event.preventDefault();   // ✅ STOP FORM SUBMIT
+  event.stopPropagation();  // ✅ STOP BUBBLING
+  this.ref.close();         // ✅ CLOSE DIALOG
+}
+
 }
