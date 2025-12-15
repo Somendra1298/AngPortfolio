@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { SharedService } from '../../shared/shared.service';
+import { MessageService } from 'primeng/api';
+import { SharedService, ToastMessage } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-toast-message',
@@ -18,10 +18,8 @@ export class ToastMessageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sharedService.toast$.subscribe((toast) => {
-      if (toast?.severity) {
-        this.messageService.add(toast);
-      }
+    this.sharedService.toast$.subscribe((toast: ToastMessage) => {
+      this.messageService.add(toast);
     });
   }
 }
