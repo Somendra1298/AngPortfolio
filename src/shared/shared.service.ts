@@ -1,25 +1,15 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root'
 })
-
 export class SharedService {
 
-    toastObj: any = {
-        severity: '',
-        summary: '',
-        detail: ''
-    };
+  private toastSubject = new Subject<any>();
+  toast$ = this.toastSubject.asObservable();
 
-    constructor() { }
-
-    toastObject = new BehaviorSubject(this.toastObj);
-    $toastData = this.toastObject.asObservable();
-
-    updateToastMessage(obj: any) {
-        this.toastObject.next(obj)
-    }
-
+  updateToastMessage(message: any) {
+    this.toastSubject.next(message);
+  }
 }
